@@ -8,6 +8,10 @@ def transcribe_file(speech_file):
     from google.cloud.speech import types
     client = speech.SpeechClient()
 
+    from pydub import AudioSegment
+    sound = AudioSegment.from_mp3(speech_file)
+    sound.export("./", format="wav")
+
     with io.open(speech_file, 'rb') as audio_file:
         content = audio_file.read()
 
