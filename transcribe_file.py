@@ -2,7 +2,6 @@ import argparse
 import io
 import os
 
-
 def transcribe_file(speech_file):
     """Transcribe the given audio file."""
     from google.cloud import speech
@@ -36,6 +35,4 @@ def transcribe_file(speech_file):
     print(response)
 
     for result in response.results:
-        print('Transcript: {}'.format(result.alternatives[0].transcript))
-
-transcribe_file('/home/kruszynka/Pobrane/Source/mastercoder/fakap-team/plikiaudio/rozmowa1_ENG/scen1tel2.flac')
+        print('Transcript: {}'.format(result.alternatives[0].transcript)
