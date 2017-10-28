@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "mastercoder-faka-1508788935765",
+  "private_key_id": "ed22172971e93b8c72194f5b40c37239ac2f601b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCnzGyQ17E7rO9z\nNbn00lpSKyMdFmtQKry78679EcFneiYj6XzSkt9wdkiUcnOQw5/nINa+v5S9c5WJ\n2KpZ+h0Jdv9F8dbNErdJyVfF+bqgld2Gko8iTNtrclJ4cZ+9pTHbZ5IJtN66Nqk2\nHe0mpiC9Ijb52xWWN62ZiT8veJWFdPWLo8c2zTZgy1zpevaCi/HHptztLTQxFxb9\nB2ztp5lMuffcu8/9iOOu7CIWEE8fjyt57K41LiEohhoVv27FZCOzTiu3s2S6pv5b\nkQmKrX/zCmtEAyDLr5mtgW/bM5qmkZDuBEVZbfgrgXa/SHkHzZY6Mvs+APFGZNew\nqOI/6cOTAgMBAAECggEADZ9WdwHTxST6gY9si9gh9gbDgIKH7sexb87ON4Rf/68W\ndpbnh87dreskZEzQXgHLsv9i/7Rc9m5yRvEcj1ZzUgfjnIGQLzDkSWy7n/pwsMXJ\n6LlwPlgf/h6XXGjZD5PgMtA7NmeFJ3f1j8upK5iUEta6wNkM7ReTE+JlC00OUnm1\nH6BLY8mk8hY8ChWzSncJj7m20qSYrE0MnxuDscgottbK7VPoKiFPdC5EvUt1nYbI\nQb6pNggQrcjrEEQWJU7g+HlW+XVvCbBQHDKUpY7FnuoHVZeLjPxIiWmvQKm39tm9\nhAjZe6SduziMlA86QL1Utu9OzHGLaH2KvCSYfhb6zQKBgQDY4E2ov/OcpH3A/wET\nSPpffBCiGKOFyt/diUoqj+7Y/wSRzU/lAaSdKH/LmUfLysndQYm14eeqGMQxhzNm\nUYZ5w4sMHyPHupY5t5KzEnCmSv4mL4OhVA7iB7UR59A1ZTTboM/E6UffoYdWZrx4\nZTES9RahLi3Bgl4yWoxYJz7nVwKBgQDGEaJuCzafBGVfRlFO0+6smhk5AjpGZucX\nYOtjQ1ZUntsDLTBsUUATi/5x+4jiXEgeZFH8viCKK7VC4qVrGFMNixbMmx2UPL8m\nPjIFiEOgPs/AlmRzMkC5ruGsoJtAd6zNqLQm60W2xoqUXzI6OzsITBxK3oOJvZSy\nZBK9ya/MJQKBgHZVlSohalwrCI641S5foHVfLXg0t2y2MIYhdf1ZQbrXEvg3LYPH\n7LjvsyM1RI523MREEU7Tr2MJVmur2KjYjOZ9gq4fg5dkQLnHZ10cD6k8vAW74Tey\ntNgx2mOlt96alUfNK/DGVLg5262SKv4KQMeWQT27A65VYu5Yp8El0NXLAoGARyDo\nEtqmB979RIStCEDlckh4jFd3c/baQDQG9AOnigXuIqrku9FF0H8ypd4tnxSCtZ9T\nLg9dAiGGG3nm65m1oaR0UI/XxHc4MdSeBAyWNIK5+rBHbHL8eXILCwI2HqWbgdN2\nto9A3s1X0MaK9Ax3O5iRhHV6CUnyj0mOzWcTYZ0CgYAbE75sp/1hQrOg4EfiQ170\nFbFmwcTO/ePWXUcb27/35wtvpZrrtLSJZcvwHMvAK+alkn7isTcShaih+WZZlScH\nZ+6xhodIvnhOaiqF99YM7KsNYDb05G1RFjaFKoQnWxfY36NvOFdzlBn/hgO4NCvK\nLP2kurbPICSpGJXysndmYw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "starting-account-fr7pv3swfns@mastercoder-faka-1508788935765.iam.gserviceaccount.com",
+  "client_id": "112373859506755977276",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/starting-account-fr7pv3swfns%40mastercoder-faka-1508788935765.iam.gserviceaccount.com"
+}
