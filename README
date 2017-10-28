@@ -29,3 +29,5 @@ Przykład użycia programu:
 Gdzie pierwszy parametr to ścieżka do folderu z plikami audio 
 Drugi parametr to ścieżka do pliku ze słowami kluczowymi
 Trzeci parametr to kod języka, w naszym przypadku en_US
+
+Adres repozytorium https://github.com/coola/fakap-team
