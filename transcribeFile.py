@@ -28,7 +28,7 @@ def transcribe_file(args):
     if not os.path.exists(directory):
         os.makedirs(directory)  
 
-    current_temp_directory = directory + "/" + datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
+    current_temp_directory = directory + "/" + str(time.time())
     
     os.makedirs(current_temp_directory) 
 
@@ -56,9 +56,43 @@ def transcribe_file(args):
             splittedFileReport = flac_path + "_splitted.txt"
 
             print(flac_path)
-            print(splittedFileReport)
+            print(splittedFileReport)            
 
-            print(os.system('ffmpeg -i "'+flac_path+'" -af silencedetect=noise=-30dB:d=0.5 -f null - 2> ' + splittedFileReport))
+            silenceRecoginitionCommand = 'ffmpeg -i "'+ flac_path +'" -af silencedetect=noise=-30dB:d=0.5 -f null - 2> ' + splittedFileReport
+
+            print silenceRecoginitionCommand
+
+            os.system(silenceRecoginitionCommand)
+
+            voice_start = 0
+            voice_duration = 0
+
+            splitted_file_index = 0
+            silence_detect_index = 0 
+            with open(splittedFileReport) as fileReport:
+                for i, line in enumerate(fileReport):
+                     
+                                                      
+                    if line.startswith('[silencedetect'):
+                        print line                        
+                        data = line.split()
+
+                        print '* silence_detect_index ' + str(silence_detect_index) 
+
+                        if (i % 2 == 0 and silence_detect_index != 0):
+                            voice_end = float(data[4])
+                            voice_duration = voice_end - voice_start
+                            print ' *** voice_start: ' + str(voice_start) + ' voice_duration: ' + str(voice_duration)                            
+                            only_voice_path = flac_path + "_only_voice_" + str(silence_detect_index) + ".flac"                             
+                            only_voice_file_split_command = 'ffmpeg -ss '+ str(voice_start) +' -t '+ str(voice_duration) +' -i '+ flac_path +' ' + only_voice_path + ' -hide_banner -loglevel panic'
+                            print(only_voice_file_split_command)
+                            os.system(only_voice_file_split_command)
+                        if i % 2 == 1:
+                            voice_start = float(data[4])
+
+                        silence_detect_index = silence_detect_index + 1                   
+                            
+            return
 
             print("recognizing file: " + flac_path)
             with io.open(flac_path, 'rb') as audio_file:
