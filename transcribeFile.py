@@ -51,7 +51,16 @@ def transcribe_file(args):
 
     for filename in os.listdir(current_temp_directory):
         if filename.endswith(".flac"):            
-            flac_path = os.path.join(current_temp_directory, filename) 
+            flac_path = os.path.join(current_temp_directory, filename)
+
+            splittedFileReport = flac_path + "_splitted.txt"
+
+            print(flac_path)
+            print(splittedFileReport)
+
+
+            os.system('ffmpeg -i ./"'+flac_path+'" -af silencedetect=noise=-30dB:d=0.5 -f null - 2> ./' + splittedFileReport)
+
             print("recognizing file: " + flac_path)
             with io.open(flac_path, 'rb') as audio_file:
                 content = audio_file.read()
