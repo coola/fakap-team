@@ -58,8 +58,7 @@ def transcribe_file(args):
             print(flac_path)
             print(splittedFileReport)
 
-
-            os.system('ffmpeg -i ./"'+flac_path+'" -af silencedetect=noise=-30dB:d=0.5 -f null - 2> ./' + splittedFileReport)
+            print(os.system('ffmpeg -i "'+flac_path+'" -af silencedetect=noise=-30dB:d=0.5 -f null - 2> ' + splittedFileReport))
 
             print("recognizing file: " + flac_path)
             with io.open(flac_path, 'rb') as audio_file:
