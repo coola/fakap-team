@@ -5,6 +5,7 @@ Testowany na wersji Python : 2.7.12
 Obsługuje jezyk angielski.
 
 Nasz skrypt tylko sprawdza czy w plikach dźwiękowych jest dany plik nie sprawdza liczby wystąpień.
+Skrypt dzieli pliki na takie bez ciszy i wysyła do serwera Google do rozpoznania. 
 
 Pisany i uruchamiany w systemie Mint 18.
 
@@ -23,8 +24,10 @@ Do działania programu potrzebny jest dostęp do internetu.
 
 Przykład użycia programu:
 
-    python transcribeFile.py /home/kruszynka/Pobrane/Source/mastercoder/fakap-team/plikiaudio/rozmowa2_ENG/ /home/kruszynka/Pobrane/Source/mastercoder/fakap-team/plikiaudio/keywords_ENG.txt en_US
+    python transcribeFile.py /home/kruszynka/Pobrane/Source/mastercoder/fakap-team/plikiaudio/rozmowa1_ENG/ /home/kruszynka/Pobrane/Source/mastercoder/fakap-team/plikiaudio/keywords_ENG.txt en_US
 
 Gdzie pierwszy parametr to ścieżka do folderu z plikami audio 
 Drugi parametr to ścieżka do pliku ze słowami kluczowymi
 Trzeci parametr to kod języka, w naszym przypadku en_US
+
+Adres repozytorium https://github.com/coola/fakap-team
