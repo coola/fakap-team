@@ -3,7 +3,8 @@ import os
 import sys
 import time
 import datetime
-
+import pprint
+import re
 from google.cloud import speech
 from google.cloud.speech import enums
 from google.cloud.speech import types
@@ -34,6 +35,7 @@ def transcribe_file(args):
 
     client = speech.SpeechClient()
 
+    recognition_results = []
 
     print("Converting mp3 files to wav files")
     for filename in os.listdir(speech_folder):
@@ -70,11 +72,10 @@ def transcribe_file(args):
             splitted_file_index = 0
             silence_detect_index = 0 
             with open(splittedFileReport) as fileReport:
-                for i, line in enumerate(fileReport):
-                     
+                for i, line in enumerate(fileReport):                     
                                                       
                     if line.startswith('[silencedetect'):
-                        print line                        
+                                               
                         data = line.split()
 
                         print '* silence_detect_index ' + str(silence_detect_index) 
@@ -87,36 +88,47 @@ def transcribe_file(args):
                             only_voice_file_split_command = 'ffmpeg -ss '+ str(voice_start) +' -t '+ str(voice_duration) +' -i '+ flac_path +' ' + only_voice_path + ' -hide_banner -loglevel panic'
                             print(only_voice_file_split_command)
                             os.system(only_voice_file_split_command)
+
+                            print("recognizing file: " + only_voice_path)
+                            with io.open(only_voice_path, 'rb') as audio_file:
+                                content = audio_file.read()
+
+                            audio = types.RecognitionAudio(content=content)
+                            config = types.RecognitionConfig(
+                            encoding= enums.RecognitionConfig.AudioEncoding.FLAC,
+                            sample_rate_hertz=16000,
+                            language_code=language_code)
+
+                            response = client.recognize(config, audio)
+                            for result in response.results:
+                                recognized = result.alternatives[0].transcript
+                                recognition_results.append(recognized)
+
                         if i % 2 == 1:
                             voice_start = float(data[4])
 
-                        silence_detect_index = silence_detect_index + 1                   
-                            
-            return
-
-            print("recognizing file: " + flac_path)
-            with io.open(flac_path, 'rb') as audio_file:
-                content = audio_file.read()
-
-            audio = types.RecognitionAudio(content=content)
-            config = types.RecognitionConfig(
-            encoding= enums.RecognitionConfig.AudioEncoding.FLAC,
-            sample_rate_hertz=16000,
-            language_code=language_code)
-
-            response = client.recognize(config, audio)
-            for result in response.results:
-                print('Transcript of {}: {}'.format(filename, result.alternatives[0].transcript))
+                        silence_detect_index = silence_detect_index + 1
             continue
         else:
             continue
-    
-    
-    # Print the first alternative of all the consecutive results.
+    print(recognition_results)    
+
+    final_results = []
 
     
-    print(response)
 
+    with open(keywords_file) as keyWordsFile:
+        for word in keyWordsFile:
+            final_result = []
+            word = word.rstrip()
+            final_result.append(word)
+            result = False
+            for phrase in recognition_results:    
+                if re.search(word, phrase, re.IGNORECASE):
+                    result = True
 
-#'/home/kruszynka/Pobrane/Source/mastercoder/fakap-team/plikiaudio/rozmowa1_ENG/'
+            final_result.append(result)
+            final_results.append(final_result)    
+    pprint.pprint(final_results)
+
 transcribe_file(sys.argv)

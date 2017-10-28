@@ -1,0 +1,30 @@
+Nasz skrypt jest napisany w języku PYTHON.
+
+Testowany na wersji Python : 2.7.12
+
+Obsługuje jezyk angielski.
+
+Nasz skrypt tylko sprawdza czy w plikach dźwiękowych jest dany plik nie sprawdza liczby wystąpień.
+
+Pisany i uruchamiany w systemie Mint 18.
+
+Do rozpoznawania korzystamy z Google Speech API.
+Do konwersji i cięcia pilków audio korzystamy programu ffmpeg.
+
+Żeby zainstalować potrzebne programy:
+
+    sudo apt install pip
+    sudo pip install --upgrade setuptools
+    sudo pip install --upgrade google-cloud
+    sudo apt-get install ffmpeg
+    sudo pip install --upgrade pydub
+
+Do działania programu potrzebny jest dostęp do internetu. 
+
+Przykład użycia programu:
+
+    python transcribeFile.py /home/kruszynka/Pobrane/Source/mastercoder/fakap-team/plikiaudio/rozmowa2_ENG/ /home/kruszynka/Pobrane/Source/mastercoder/fakap-team/plikiaudio/keywords_ENG.txt en_US
+
+Gdzie pierwszy parametr to ścieżka do folderu z plikami audio 
+Drugi parametr to ścieżka do pliku ze słowami kluczowymi
+Trzeci parametr to kod języka, w naszym przypadku en_US
